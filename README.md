@@ -61,3 +61,20 @@ Task:
 
 ---
 Good luck 🚀
+
+Solution
+
+
+To achieve First Normal Form (1NF), we need to eliminate multi-valued attributes. Specifically, the Products column should be split so that each product appears in a separate row.
+
+Assuming the original table is called ProductDetail, you can transform it into 1NF using a SQL query like this (example shown for MySQL 8.0+, which supports JSON_TABLE or Common Table Expressions + string functions for string splitting):
+
+
+To achieve Second Normal Form (2NF), we must:
+
+    Remove partial dependencies, i.e., any column that depends only on part of a composite primary key.
+
+    In the given table, the composite key is (OrderID, Product).
+
+    CustomerName depends only on OrderID, not the full key — this is a partial dependency and violates 2NF.
+
